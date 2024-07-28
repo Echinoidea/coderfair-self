@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
-import { ThemeProvider } from "next-themes";
+// import "./globals.css";
+import ProfileHeader from "@/components/profile/header";
+import ProfileNavigation from "@/components/profile/navigation";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,15 +18,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
+      <body className={`${inter.className} max-w-screen max-h-screen`}>
+        <header>
+          <ProfileHeader/>
+          <ProfileNavigation/>
+        </header>
+        
         {children}
-        </ThemeProvider>
+        
       </body>
     </html>
   );
